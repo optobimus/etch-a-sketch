@@ -25,7 +25,12 @@ function drawColor() {
     let containers = document.querySelectorAll('.container');
     containers.forEach(container => 
     container.addEventListener(("mouseover"), (e) => {
-        container.style.backgroundColor = random_rgba();
+        if (container.getAttribute('value') === 'hovered') {
+            container.style.filter = `brightness(50%)`;
+        } else {
+            container.style.backgroundColor = random_rgba();
+            container.setAttribute('value', 'hovered');
+        }
     }));
 }
 
